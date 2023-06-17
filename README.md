@@ -1,10 +1,6 @@
 # Channel-Mixer
 Convert grayscale images into a single four channel image.
 
-Easily mix gray scale images into a single multi channel image.
-
-Add or remove added images.
-
 Just drag and drop images on your pc to the R, G, B or A section to add.
 
 Press generate button to generate your new mixed image.
