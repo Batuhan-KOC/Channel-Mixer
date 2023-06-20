@@ -4,6 +4,8 @@
 
 #include <QFileInfo>
 
+#include "../QPSD/qtpsd.h"
+
 #include <QDebug>
 
 QLabelDragDrop::QLabelDragDrop(QWidget* parent)
@@ -12,7 +14,7 @@ QLabelDragDrop::QLabelDragDrop(QWidget* parent)
     setAcceptDrops(true);
     setMouseTracking(true);
 
-    acceptedTypes << "jpeg" << "jpg" << "png" << "bmp";
+    acceptedTypes << "jpeg" << "jpg" << "png" << "bmp" << "psd";
 }
 
 
@@ -63,7 +65,14 @@ void QLabelDragDrop::dropEvent(QDropEvent *event)
     Q_UNUSED(event)
 
     if(!path.isEmpty()){
-        image = QImage(path);
+        QFileInfo info(path);
+
+        if(info.suffix() != "psd"){
+            image = QImage(path);
+        }
+        else{
+            image = (QPSD::loadWholeImage(path));
+        }
 
         setPixmap(QPixmap::fromImage(image.scaled(this->width() ,this->height() ,Qt::KeepAspectRatio, Qt::SmoothTransformation)));
 

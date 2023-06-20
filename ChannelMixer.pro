@@ -10,11 +10,21 @@ CONFIG += c++17
 
 SOURCES += \
     QLabelDragDrop/QLabelDragDrop.cpp \
+    QPSD/private/list/list.c \
+    QPSD/private/list/list_iterator.c \
+    QPSD/private/list/list_node.c \
+    QPSD/private/psd.c \
+    QPSD/qtpsd.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     QLabelDragDrop/QLabelDragDrop.h \
+    QPSD/private/list/list.h \
+    QPSD/private/psd.h \
+    QPSD/private/psd_p.h \
+    QPSD/qtpsd.h \
+    QPSD/qtpsd_global.h \
     mainwindow.h
 
 FORMS += \
